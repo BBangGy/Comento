@@ -1,0 +1,61 @@
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.header {
+    background: #0078D7;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+header nav a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+#skill ul {
+    list-style: none;
+    padding: 0;
+}
+
+#skill li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border: 2px solid #ddd;
+}
+#skill li:hover{
+    background-color: #0078D7;
+    color: white;
+}
+
+#project {
+    margin: 15px 0;
+}
+#about {
+    background-color: #f4f4f4;
+}
+#skill {
+    background-color: #e0f7fa;
+}
+#project {
+    background-color: #ffe0b2;
+}
+#contact {
+    background-color: #dcedc8;
+}
