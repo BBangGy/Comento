@@ -12,6 +12,8 @@ body {
     color: #fff;
     padding: 10px 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 header nav a {
