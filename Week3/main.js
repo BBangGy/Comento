@@ -1,4 +1,3 @@
-
 // 초기 배터리 수준 설정
 let batteryLevel = 100;
 let alarms = [];
@@ -20,12 +19,15 @@ function updateTime() {
     // 알람 체크
     checkAlarms(hours, minutes, seconds);
 }
-
-// 알람 설정 함수
+//알람 설정 함수
 function setAlarm() {
-    const hour = document.getElementById('alarm-hour').value.trim();
-    const minute = document.getElementById('alarm-minute').value.trim();
-    const second = document.getElementById('alarm-second').value.trim();
+    const hourInput = document.getElementById('alarm-hour');
+    const minuteInput = document.getElementById('alarm-minute');
+    const secondInput = document.getElementById('alarm-second');
+
+    const hour = hourInput.value.trim();
+    const minute = minuteInput.value.trim();
+    const second = secondInput.value.trim();
 
     if (hour === '' || minute === '' || second === '') {
         alert('모든 값을 입력해주세요.');
@@ -41,6 +43,31 @@ function setAlarm() {
     alarms.push(alarmTime);
 
     updateAlarmStatus();
+
+    // 입력 필드 값을 '0'으로 초기화
+    hourInput.value = '0';
+    minuteInput.value = '0';
+    secondInput.value = '0';
+}
+
+// 알람 상태 업데이트 함수
+function updateAlarmStatus() {
+    const alarmStatus = document.querySelector('#alarm-status');
+    alarmStatus.innerHTML = ''; // 기존 알람 지우기
+
+    if (alarms.length === 0) {
+        alarmStatus.textContent = '알람이 설정되지 않았습니다.';
+    } else {
+        alarms.forEach(alarm => {
+            const alarmItem = document.createElement('div');
+            alarmItem.textContent = `알람 설정: ${alarm}`;
+            alarmItem.style.padding = "5px";
+            alarmItem.style.backgroundColor = "#eee";
+            alarmItem.style.borderRadius = "5px";
+            alarmItem.style.marginBottom = "5px";
+            alarmStatus.appendChild(alarmItem);
+        });
+    }
 }
 
 // 알람 체크 함수
@@ -106,7 +133,7 @@ function chargeBattery() {
             const chargeInterval = setInterval(() => {
                 if (batteryLevel < 100) {
                     batteryLevel++; // 배터리 증가
-                    const isCharging = batteyLevel === 100 ? "배터리 충전 완료" : "충전 중";
+                    const isCharging = batteryLevel === 100 ? "배터리 충전 완료" : "충전 중";
                     batteryDiv.textContent = `배터리: ${batteryLevel}% (${isCharging})`;
 
                     if (batteryLevel === 100) {
@@ -127,15 +154,7 @@ function chargeBattery() {
     }
 }
 
-// 알람 상태 업데이트 함수
-function updateAlarmStatus() {
-    const alarmStatus = document.querySelector('#alarm-status');
-    if (alarms.length === 0) {
-        alarmStatus.textContent = '알람이 설정되지 않았습니다.';
-    } else {
-        alarmStatus.textContent = `알람 설정: ${alarms.join(', ')}`;
-    }
-}
+
 
 // 이벤트 리스너 등록
 document.getElementById('set-alarm').addEventListener('click', setAlarm);
