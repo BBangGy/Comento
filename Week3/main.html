@@ -20,24 +20,23 @@
         <div class="frame">
             <div class="alarm">
                 <section class="topBar">
-                    시간: <span id="clockBar"></span>입니다.
                 </section>
                 <section class="contents">
                     <div class="alarm-setting">
-                        <label for="alarm-hour">시: </label>
-                        <input type="number" id="alarm-hour" min="0" max="23" placeholder="0">                   
-                        <label for="alarm-minute">분: </label>
-                        <input type="number" id="alarm-minute" min="0" max="59" placeholder="0">
-                    
-                        <label for="alarm-second">초: </label>
-                        <input type="number" id="alarm-second" min="0" max="59" placeholder="0">
-                    
-                        <div>
-                            <label for="enable-sound">벨소리 활성화</label>
-                            <input type="checkbox" id="enable-sound" checked>
-                        </div>
-                    
+                        <div class="alarm-info">
+                            <label for="alarm-hour">시: </label>
+                            <input type="number" id="alarm-hour" min="0" max="23" placeholder="0">                   
+                            <label for="alarm-minute">분: </label>
+                            <input type="number" id="alarm-minute" min="0" max="59" placeholder="0">
+                        
+                            <label for="alarm-second">초: </label>
+                            <input type="number" id="alarm-second" min="0" max="59" placeholder="0">
+                         </div>
                         <button id="set-alarm">알람 설정</button>
+                    </div>
+                    <div class="alarm-sound">
+                        <label for="enable-sound">벨소리 활성화</label>
+                        <input type="checkbox" id="enable-sound" checked>
                     </div>
                     <div class="alarm-message">
                         <p id="alarm-status">알람이 설정되지 않았습니다.</p>

@@ -13,8 +13,17 @@ function updateTime() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const timeString = `${hours}:${minutes}:${seconds}`;
 
+    const days = ["일","월","화",'수','목','금','토'];
+    const year = String(now.getFullYear());
+    const month = String(now.getMonth()+1).padStart(2,"0");
+    const day = days[now.getDay()];
+    const date = String(now.getDate());
+
     const topBar = document.querySelector('.topBar');
-    topBar.textContent = `현재 시간: ${timeString}`;
+    topBar.innerHTML = `
+        <div>${year}.${month}.${date} (${day})</div>
+        <div>현재 시간: ${timeString}</div>
+    `;
 
     // 알람 체크
     checkAlarms(hours, minutes, seconds);
@@ -62,9 +71,10 @@ function updateAlarmStatus() {
             const alarmItem = document.createElement('div');
             alarmItem.textContent = `알람 설정: ${alarm}`;
             alarmItem.style.padding = "5px";
-            alarmItem.style.backgroundColor = "#eee";
+            alarmItem.style.backgroundColor = "rgb(143, 238, 0)";
             alarmItem.style.borderRadius = "5px";
             alarmItem.style.marginBottom = "5px";
+            alarmItem.style.color="black";
             alarmStatus.appendChild(alarmItem);
         });
     }
@@ -85,7 +95,6 @@ function checkAlarms(hours, minutes, seconds) {
         } else {
             alert(`알람! 현재 시간은 ${currentTime}입니다.`);
         }
-
         // 울린 알람 제거
         alarms = alarms.filter(alarm => alarm !== currentTime);
         updateAlarmStatus();
@@ -153,9 +162,6 @@ function chargeBattery() {
         alert("배터리가 이미 충전 완료 상태입니다!");
     }
 }
-
-
-
 // 이벤트 리스너 등록
 document.getElementById('set-alarm').addEventListener('click', setAlarm);
 document.getElementById('charge-battery').addEventListener('click', chargeBattery);
