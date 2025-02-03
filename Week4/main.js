@@ -25,7 +25,8 @@ function createTodoItem(text) {
     todoItem.style.alignItems = "center";
     todoItem.style.justifyContent = "space-between";
     todoItem.style.padding = "5px";
-    todoItem.style.backgroundColor = "whitesmoke";
+    todoItem.style.backgroundColor = "white";
+    todoItem.style.border="1px solid black"
     todoItem.style.borderRadius = "5px";
     todoItem.style.marginBottom = "5px";
     todoItem.style.color = "rgb(45, 45, 206)";
@@ -62,7 +63,7 @@ function createDeleteButton(todoItem) {
     deleteButton.textContent = "삭제";
     deleteButton.style.padding = "2px 8px";
     deleteButton.style.border = "none";
-    deleteButton.style.backgroundColor = "red";
+    deleteButton.style.backgroundColor = "rgb(255, 170, 117)";
     deleteButton.style.color = "white";
     deleteButton.style.borderRadius = "3px";
     deleteButton.style.cursor = "pointer";
@@ -106,7 +107,7 @@ function handleFix(todoTextElement) {
     // 저장 버튼 생성
     const saveButton = document.createElement("button");
     saveButton.textContent = "저장";
-    saveButton.style.backgroundColor = "green";
+    saveButton.style.backgroundColor = "rgb(181, 246, 83)";
     saveButton.style.color = "white";
     saveButton.style.borderRadius = "3px";
     saveButton.style.cursor = "pointer";
