@@ -1,0 +1,91 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 241, 138);
+    font-family: "Last Ninja", Impact, fantasy;
+}
+header{
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 50em
+}
+.id{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 8em;
+    border-radius: 50px;
+    background-color: white;
+    gap: 20px;
+}
+.id > input{
+    width: 15em;
+    height: 30px;
+    border-radius: 5px;
+}
+.id > button{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 20em;
+    border-radius: 50px;
+    background-color: white;
+    gap: 40px;
+}
+.password >input{
+    width: 15em;
+    height: 30px;
+    border-radius: 5px;
+}
+.password > button{
+    width: 10em;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(255, 241, 138) ;
+    color: black;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+.completeBox{
+    width: 20em;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: white;
+}
+.completeButton{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}

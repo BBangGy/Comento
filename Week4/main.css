@@ -31,6 +31,20 @@ header{
     color:rgb(45, 45, 206);
     font-size: 50px;
     font-style: italic;
+    animation: titleColor  1s linear infinite;
+    width: 250px;
+    text-align: center;
+    border-radius: 50px;
+    justify-content: center;
+}
+@keyframes titleColor{
+    0%{
+        background-color: aliceblue;
+    }
+    100%{
+        background-color: blue;
+        color: white;
+    }
 }
 main{
     width: 100%;
@@ -72,6 +86,7 @@ button{
     height: 40px;
     cursor: pointer;
 }
+
 .todoList {
     width: 60em;
     max-width: 50em;
