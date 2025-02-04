@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="./welcome.css">
 </head>
 <body>
     <main>
         <h1>TODO LIST</h1>
-        <section class="sec1">
-            <button id="loginBtn">로그인하기</button>
-            <button id="signIn">회원가입</button>
+        <section class="login-form">
+            <div class="loginContainer">
+                <input type="text" id="loginId" placeholder="아이디 입력">
+                <input type="password" id="loginPw" placeholder="비밀번호 입력">
+            </div>
+            <div class="buttonContainer">
+                <button id="loginBtn">로그인하기</button>
+                <button id="signIn">회원가입</button>
+            </div>
         </section>
     </main>
     <script src="./welcome.js"></script>
