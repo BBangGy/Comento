@@ -61,8 +61,8 @@ document.querySelector(".completeButton").addEventListener("click", () => {
     }
     
     // 아이디 & 비밀번호 저장 (`sessionStorage` 사용)
-    sessionStorage.setItem("userId", idInput);
-    sessionStorage.setItem("userPassword", pwInput);
+    sessionStorage.setItem("userId", idValue);
+    sessionStorage.setItem("userPassword", pwValue);
 
     window.location.href = "../welcomePage/welcome.html"; // `welcome.html`로 이동
 });
