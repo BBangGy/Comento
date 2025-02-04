@@ -1,11 +1,10 @@
 
 // 로그인 버튼 클릭 시 입력된 아이디 & 비밀번호 검증
-
 document.getElementById("loginBtn").addEventListener('click',()=>{
     const enteredId = document.getElementById("loginId").value.trim();
     const enteredPw = document.getElementById("loginPw").value.trim();
-    const saveId = document.sessionStorage.getItem("userId");
-    const savePw = document.sessionStorage.getItem("userPassword");
+    const saveId = sessionStorage.getItem("userId");
+    const savePw = sessionStorage.getItem("userPassword");
     console.log(saveId);
     if(enteredId ==saveId && enteredPw==savePw){
         alert("로그인성공");
