@@ -1,12 +1,12 @@
+
 const idList = [];
 const pw1 = document.getElementById("pwInput");
 const pw2 = document.getElementById("pwInputSecond");
-
 // 비밀번호 패턴 검사
 function checkPattern() {
     const pw1Input = pw1.value.trim();
-    const passwordPattern = /^(?=.*[A-Za-z])(?=.*[\W_]).{8,16}$/;
-    
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[\W]).{8,16}$/;
+
     if (!passwordPattern.test(pw1Input)) {
         alert("비밀번호는 최소 8자 이상 16자 이하, 대문자와 특수문자를 포함해야 합니다.");
     } else {
@@ -20,9 +20,9 @@ function checkPassword() {
     const pw2Input = pw2.value.trim();
     
     if (pw1Input === pw2Input) {
-        alert("비밀번호 일치!");
+        alert("비밀번호가 맞습니다!");
     } else {
-        alert("비밀번호 불일치");
+        alert("비밀번호가 틀립니다!");
     }
 }
 
@@ -30,14 +30,13 @@ function checkPassword() {
 function checkId() {
     const idInput = document.getElementById('idInput');
     const newId = idInput.value.trim();
-    
     if (idList.includes(newId)) {
         alert("중복된 아이디입니다.");
         idInput.value = "";
-    } else {
-        idList.push(newId);
-        alert("아이디 사용 가능!");
+        return;
     }
+    idList.push(newId);
+    alert("아이디 사용 가능합니다!");
 }
 
 // 가입하기 버튼 클릭 시 아이디 & 비밀번호 `sessionStorage`에 저장 후 이동
