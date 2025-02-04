@@ -25,6 +25,18 @@ main{
     color: rgb(45, 45, 206);
     border-radius: 50px;
 }
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 button{
     background-color: white;
     border: 2px solid black;
