@@ -1,9 +1,7 @@
-document.querySelector(".add").addEventListener("click", addList);
 
 function addList() {
     const todoInput = document.getElementById("todo");
     const todoText = todoInput.value.trim(); // 입력값 가져오기 (공백 제거)
-    
     if (todoText === '') {
         alert("할 일을 입력해주세요.");
         return;
@@ -17,10 +15,14 @@ function addList() {
     todoContainer.appendChild(todoItem);
     
     todoInput.value = ''; // 입력창 초기화
-
     
 }
-
+document.querySelector(".add").addEventListener("click", addList);
+document.getElementById("todo").addEventListener("keydown",(event)=>{
+    if(event.key ==="Enter"){
+        addList();
+    }
+})
 function createTodoItem(text) {
     const date = new Date();
     const todoItem = document.createElement('div');
@@ -44,15 +46,22 @@ function createTodoItem(text) {
 
     // 할 일 텍스트 요소 생성
     const todoTextElement = document.createElement('span');
-    todoTextElement.textContent = text;
+    todoTextElement.style.display="block";
+    todoTextElement.style.width="100%";
+    todoTextElement.style.minHeight="50px";
     todoTextElement.style.fontSize = "1rem"; // 기본 크기
+    todoTextElement.style.whiteSpace="normal";
+
+    todoTextElement.style.overflowWrap="break-word";
+    todoTextElement.textContent = text;
 
     // 날짜 요소 생성 (작게 표시)
     const dateContainer = document.createElement("span");
     dateContainer.textContent = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
     dateContainer.style.fontSize = "0.8rem"; // 작은 글자 크기
     dateContainer.style.color = "gray"; // 회색으로 표시
-    dateContainer.style.marginTop = "5px"; // 텍스트와 간격
+    dateContainer.style.marginTop = "10px"; // 텍스트와 간격
+    dateContainer.style.display="block";
 
     // 버튼 컨테이너 생성
     const buttonContainer = document.createElement("div");
