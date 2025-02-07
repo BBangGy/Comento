@@ -46,12 +46,12 @@ document.querySelector(".completeButton").addEventListener("click", () => {
     let pwValue = pwInput.value.trim();
 
 
-    if(idValue ==""){
+    if(idValue ===""){
         alert("아이디를 입력하세요!");
         idInput.focus();
         return;
     }
-    if(pwValue==""){
+    if(pwValue===""){
         alert("비밀번호를 입력하세요!");
         pwInput.focus();
         return;
