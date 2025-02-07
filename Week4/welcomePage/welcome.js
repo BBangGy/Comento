@@ -1,21 +1,23 @@
-
-// 로그인 버튼 클릭 시 입력된 아이디 & 비밀번호 검증
-document.getElementById("loginBtn").addEventListener('click',()=>{
+// 로그인 검증 함수
+function handleLogin() {
     const enteredId = document.getElementById("loginId").value.trim();
     const enteredPw = document.getElementById("loginPw").value.trim();
     const saveId = sessionStorage.getItem("userId");
     const savePw = sessionStorage.getItem("userPassword");
-    console.log(saveId);
-    if(enteredId ==saveId && enteredPw==savePw){
-        alert("로그인성공");
-        window.location.href="../main.html";
-    }
-    else{
+    
+    if (enteredId === saveId && enteredPw === savePw) {
+        alert("로그인에 성공했습니다.");
+        window.location.href = "../main.html";
+    } else {
         alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
-})
+}
 
-// 회원가입 버튼 클릭 시 회원가입 페이지로 이동
-document.getElementById("signIn").addEventListener("click", function() {
+// 회원가입 페이지 이동 함수
+function redirectToSignUp() {
     window.location.href = "../SignIn/sign.html";
-});
+}
+
+// 이벤트 리스너 추가
+document.getElementById("loginBtn").addEventListener('click', handleLogin);
+document.getElementById("signIn").addEventListener("click", redirectToSignUp);

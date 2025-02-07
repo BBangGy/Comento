@@ -1,6 +1,7 @@
 const idList = [];
 const pw1 = document.getElementById("pwInput");
 const pw2 = document.getElementById("pwInputSecond");
+const idInput = document.getElementById('idInput');
 
 // 비밀번호 패턴 검사
 function checkPattern() {
@@ -20,31 +21,27 @@ function checkPassword() {
     const pw2Input = pw2.value.trim();
     
     if (pw1Input === pw2Input) {
-        alert("비밀번호 일치!");
+        alert("비밀번호가 일치합니다!");
     } else {
-        alert("비밀번호 불일치");
+        alert("비밀번호가 일치하지 않습니다!");
     }
 }
 
 // 아이디 중복 검사
 function checkId() {
-    const idInput = document.getElementById('idInput');
     const newId = idInput.value.trim();
     
     if (idList.includes(newId)) {
-        alert("중복된 아이디입니다.");
+        alert("중복된 아이디입니다!");
         idInput.value = "";
     } else {
         idList.push(newId);
-        alert("아이디 사용 가능!");
+        alert("아이디 사용 가능합니다!");
     }
 }
 
 // 가입하기 버튼 클릭 시 아이디 & 비밀번호 `sessionStorage`에 저장 후 이동
 document.querySelector(".completeButton").addEventListener("click", () => {
-    let idInput = document.getElementById("idInput");
-    let pwInput = document.getElementById("pwInput");
-
     let idValue = idInput.value.trim();
     let pwValue = pwInput.value.trim();
 
