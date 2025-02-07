@@ -51,8 +51,10 @@ function createTodoItem(text) {
     todoTextElement.style.minHeight="50px";
     todoTextElement.style.fontSize = "1rem"; // 기본 크기
     todoTextElement.style.whiteSpace="normal";
-
+    todoTextElement.style.backgroundColor="rgb(218, 218, 224)"
+    todoTextElement.style.borderRadius="5px";
     todoTextElement.style.overflowWrap="break-word";
+    todoTextElement.style.padding="5px"
     todoTextElement.textContent = text;
 
     // 날짜 요소 생성 (작게 표시)
