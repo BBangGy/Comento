@@ -3,57 +3,78 @@ document.querySelector(".add").addEventListener("click", addList);
 function addList() {
     const todoInput = document.getElementById("todo");
     const todoText = todoInput.value.trim(); // 입력값 가져오기 (공백 제거)
-
+    
     if (todoText === '') {
         alert("할 일을 입력해주세요.");
         return;
     }
-
+    
     const todoContainer = document.getElementById("todo-container");
     document.getElementById("todo-alarm").style.display = "none"; // 알림 메시지 숨기기
-
+    
     // 새로운 할 일 항목 생성 후 추가
     const todoItem = createTodoItem(todoText);
     todoContainer.appendChild(todoItem);
-
+    
     todoInput.value = ''; // 입력창 초기화
+
+    
 }
 
 function createTodoItem(text) {
+    const date = new Date();
     const todoItem = document.createElement('div');
     todoItem.style.display = "flex";
-    todoItem.style.alignItems = "center";
-    todoItem.style.justifyContent = "space-between";
-    todoItem.style.padding = "5px";
+    todoItem.style.flexDirection = "column"; // 세로 정렬
+    todoItem.style.alignItems = "flex-start"; // 왼쪽 정렬
+    todoItem.style.padding = "10px";
     todoItem.style.backgroundColor = "white";
-    todoItem.style.border="1px solid black"
+    todoItem.style.border = "1px solid black";
     todoItem.style.borderRadius = "5px";
-    todoItem.style.marginBottom = "5px";
+    todoItem.style.marginBottom = "10px";
     todoItem.style.color = "rgb(45, 45, 206)";
     todoItem.style.width = "30em";
-    todoItem.style.boxShadow='2px 2px 2px black'
+    todoItem.style.boxShadow = '2px 2px 2px black';
+
+    // 텍스트와 날짜를 감쌀 컨테이너
+    const textContainer = document.createElement('div');
+    textContainer.style.display = "flex";
+    textContainer.style.flexDirection = "column";
+    textContainer.style.width = "100%";
 
     // 할 일 텍스트 요소 생성
     const todoTextElement = document.createElement('span');
     todoTextElement.textContent = text;
+    todoTextElement.style.fontSize = "1rem"; // 기본 크기
 
-    // 버튼 컨테이너 생성 (삭제/수정 버튼 정렬용)
+    // 날짜 요소 생성 (작게 표시)
+    const dateContainer = document.createElement("span");
+    dateContainer.textContent = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+    dateContainer.style.fontSize = "0.8rem"; // 작은 글자 크기
+    dateContainer.style.color = "gray"; // 회색으로 표시
+    dateContainer.style.marginTop = "5px"; // 텍스트와 간격
+
+    // 버튼 컨테이너 생성
     const buttonContainer = document.createElement("div");
     buttonContainer.style.display = "flex";
-    buttonContainer.style.gap = "5px"; // 버튼 간격 설정
+    buttonContainer.style.justifyContent = "flex-end"; // 오른쪽 정렬
+    buttonContainer.style.gap = "5px";
+    buttonContainer.style.marginTop = "10px";
+    buttonContainer.style.width = "100%";
 
-    // 삭제 버튼 생성
+    // 삭제/수정 버튼 생성
     const deleteButton = createDeleteButton(todoItem);
-    // 수정 버튼 생성
     const fixButton = createFixButton(todoTextElement);
 
-    // 버튼 컨테이너에 버튼 추가
+    // 버튼 추가
     buttonContainer.appendChild(deleteButton);
     buttonContainer.appendChild(fixButton);
 
-    // 요소 추가
-    todoItem.appendChild(todoTextElement);
-    todoItem.appendChild(buttonContainer); // 버튼 컨테이너 추가
+    // 요소 조립
+    textContainer.appendChild(todoTextElement);
+    textContainer.appendChild(dateContainer);
+    todoItem.appendChild(textContainer);
+    todoItem.appendChild(buttonContainer);
 
     return todoItem;
 }
@@ -62,7 +83,6 @@ function createDeleteButton(todoItem) {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = "삭제";
     deleteButton.style.padding = "2px 8px";
-    deleteButton.style.border = "none";
     deleteButton.style.backgroundColor = "rgb(255, 170, 117)";
     deleteButton.style.color = "white";
     deleteButton.style.borderRadius = "3px";

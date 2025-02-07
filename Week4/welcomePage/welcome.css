@@ -30,12 +30,14 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 .loginContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 button{
     background-color: white;
